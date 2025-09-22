@@ -14,8 +14,20 @@ public class Polynomial {
         int maxLength = Math.max(this.coefficients.length, other.coefficients.length);
         double[] result = new double[maxLength];
         for (int i = 0; i < maxLength; i++) {
-            double a = (i < this.coefficients.length) ? this.coefficients[i] : 0.0;
-            double b = (i < other.coefficients.length) ? other.coefficients[i] : 0.0;
+		double a;
+		if (i < this.coefficients.length) {
+		    a = coefficients[i];
+		} else {
+		    a = 0.0;
+		}
+
+		double b;
+		if (i < other.coefficients.length) {
+		    b = other.coefficients[i];
+		} else {
+		    b = 0.0;
+		}
+
             result[i] = a + b;
         }
         return new Polynomial(result);
